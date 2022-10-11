@@ -10,6 +10,8 @@ height = 60.0
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_6l8ii")
 MAX_JUMP = 11000
+jump_ended_early_gravity_modifier = 15
+max_fall_speed = 40000
 metadata/_edit_group_ = true
 
 [node name="Char" type="Sprite2D" parent="."]

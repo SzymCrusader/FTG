@@ -17,16 +17,26 @@ var IS_APEX = false
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * GRAVITY_MODIFIER
 
+var jump_ended_early = false
+var jump_ended = false
+var jumping = false
+@onready var _fall_speed = 2
+@export var jump_ended_early_gravity_modifier = 2
+@export var max_fall_speed = 4
+
 
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		if Input.is_action_just_pressed("player_up"): 
+			jumping = true
 			JUMP_BUFFER.start()
 			
 		if Input.is_action_just_released("player_up"):
 			if velocity.y<0:
+				jump_ended_early = true
 				JUMP_END = true
+				print("early end")
 			
 		if JUMP_DISTANCE >=MAX_JUMP:
 			JUMP_END = true
@@ -42,8 +52,9 @@ func _physics_process(delta):
 			if JUMP_FORCE < MAX_JUMP_FORCE:
 				JUMP_FORCE *= 1.5
 				
-		if APEX_TIMER.time_left<=0:
-			velocity.y += gravity * delta 
+		
+		#if APEX_TIMER.time_left<=0:
+		calculate_gravity(delta)
 
 	# Handle Jump.
 
@@ -52,6 +63,7 @@ func _physics_process(delta):
 		JUMP_END = false
 		JUMP_DISTANCE = 0
 		JUMP_FORCE = 300
+		jump_ended_early = false
 		velocity.y = JUMP_FORCE * (-1)
 
 		
@@ -73,3 +85,12 @@ func _physics_process(delta):
 	if wasonfloor == true and not is_on_floor():
 		wasonfloor = false
 		COYOTE.start()
+
+func calculate_gravity(delta):
+	var fall_speed = gravity * jump_ended_early_gravity_modifier if jump_ended_early and velocity.y < 0 else gravity
+	if jump_ended_early and velocity.y < 0:
+		print(fall_speed)
+	velocity.y += fall_speed * delta
+	if velocity.y > max_fall_speed: 
+		velocity.y = max_fall_speed
+	
