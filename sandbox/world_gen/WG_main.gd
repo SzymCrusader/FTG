@@ -5,21 +5,23 @@ extends Node2D
 
 @export var map_width = 0
 @export var map_height = 0
+@export var iterations = 1
 
 @onready @export var noise_density = 50
 @onready var map = Vector2()
-@onready var noise_grid = []
+@onready var map_grid = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(map_width, map_height)
 	rng.randomize()
 	map.x = map_width
 	map.y = map_height 
-	print(map.x, " " , map.y)
-	make_noise(noise_density)
-	place_tiles(noise_grid)
+	map_grid = make_noise(noise_density)
+	print("noise done")
+	map_grid = apply_cellular_automaton(map_grid, iterations)
+	place_tiles(map_grid)
 
 func make_noise(density):
+	var noise_grid = []
 	for i in map.y:
 		noise_grid.append([])
 		for j in map.x:
@@ -34,9 +36,32 @@ func make_noise(density):
 				noise_grid[h][w] = 1
 			else:
 				noise_grid[h][w] = 0
-	print(noise_grid)
+	return noise_grid
+func apply_cellular_automaton(grid, count):
+	for i in count:
+		print("Starting iteration ", i)
+		var temp_grid = grid.duplicate()
+		for h in map.y:
+			for w in map.x:
+				var neigbor_count = 0
+				for y in range(h-1,h+1):
+					for x in range(w-1,w+1): 
+						if (y>=0 and y<=map.y-1) and (x>=0 and x<= map.x-1):
+							if y!=h:
+								if x !=w:
+									if temp_grid[y][x] == 1:
+										neigbor_count+=1
+						else:
+							neigbor_count+=1
 
+				if neigbor_count > 1:
+					grid[h][w] = 1
+				else:
+					grid[h][w] = 0
+		print("Iteration ", i," done")
+	return grid
 func place_tiles(grid):
+	print("placing tiles")
 	for i in map.y:
 		for j in map.x:
 			tiles.set_cell(0, Vector2i(j,i),grid[i][j],Vector2i(0,0))
