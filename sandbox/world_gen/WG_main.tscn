@@ -22,9 +22,9 @@ sources/1 = SubResource("TileSetAtlasSource_yh23q")
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_er3jj")
-map_width = 130
-map_height = 60
-noise_density = 80
+map_width = 300
+map_height = 200
+noise_density = 60
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_sqkn0")

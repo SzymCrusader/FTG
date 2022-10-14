@@ -1,6 +1,5 @@
 extends Node2D
 @onready var tiles = $TileMap 
-
 @onready var rng = RandomNumberGenerator.new()
 
 @export var map_width = 0
@@ -17,8 +16,8 @@ func _ready():
 	map.y = map_height 
 	map_grid = make_noise(noise_density)
 	print("noise done")
-	map_grid = apply_cellular_automaton(map_grid, iterations)
 	place_tiles(map_grid)
+	map_grid = apply_cellular_automaton(map_grid, iterations)
 
 func make_noise(density):
 	var noise_grid = []
@@ -44,17 +43,17 @@ func apply_cellular_automaton(grid, count):
 		for h in map.y:
 			for w in map.x:
 				var neigbor_count = 0
-				for y in range(h-1,h+1):
-					for x in range(w-1,w+1): 
-						if (y>=0 and y<=map.y-1) and (x>=0 and x<= map.x-1):
-							if y!=h:
-								if x !=w:
+				for y in range(h-1,h+2):
+					for x in range(w-1,w+2):
+						if (y>=0 and y <map.y) and (x>=0 and x < map.x):
+							if y!=h or x!=w:
 									if temp_grid[y][x] == 1:
 										neigbor_count+=1
+										
 						else:
 							neigbor_count+=1
 
-				if neigbor_count > 1:
+				if neigbor_count > 4:
 					grid[h][w] = 1
 				else:
 					grid[h][w] = 0
@@ -65,4 +64,7 @@ func place_tiles(grid):
 	for i in map.y:
 		for j in map.x:
 			tiles.set_cell(0, Vector2i(j,i),grid[i][j],Vector2i(0,0))
-	
+
+func _physics_process(delta):
+	if Input.is_action_just_pressed("player_up"):
+			place_tiles(map_grid)
