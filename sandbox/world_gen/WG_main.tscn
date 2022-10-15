@@ -25,7 +25,7 @@ script = ExtResource("1_er3jj")
 map_width = 300
 map_height = 200
 iterations = 3
-noise_density = 10
+noise_density = 60
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_sqkn0")
