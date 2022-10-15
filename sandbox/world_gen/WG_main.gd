@@ -28,7 +28,7 @@ func make_noise(density):
 	
 	for h in map.y:
 		for w in map.x:
-			var random = rng.randi_range(1,100)
+			var random = rng.randi_range(1, 100)
 			if random > density:
 				noise_grid[h][w] = 0
 			else:
@@ -41,15 +41,15 @@ func apply_cellular_automaton(grid, count):
 		for h in map.y:
 			for w in map.x:
 				var neigbor_count = 0
-				for y in range(h-1,h+2):
-					for x in range(w-1,w+2):
+				for y in range(h-1, h+2):
+					for x in range(w-1, w+2):
 						if (y>=0 and y <map.y) and (x>=0 and x < map.x):
 							if y!=h or x!=w:
 									if temp_grid[y][x] == 1:
-										neigbor_count+=1
+										neigbor_count += 1
 										
 						else:
-							neigbor_count+=1
+							neigbor_count += 1
 
 				if neigbor_count > 4:
 					grid[h][w] = 1
@@ -61,5 +61,5 @@ func place_tiles(grid):
 	print("placing tiles")
 	for i in map.y:
 		for j in map.x:
-			tiles.set_cell(0, Vector2i(j,i),grid[i][j],Vector2i(0,0))
+			tiles.set_cell(0, Vector2i(j, i), grid[i][j], Vector2i(0, 0))
 
