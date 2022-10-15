@@ -39,7 +39,7 @@ func make_noise(density):
 func apply_cellular_automaton(grid, count):
 	for i in count:
 		print("Starting iteration ", i)
-		var temp_grid = grid.duplicate()
+		var temp_grid = grid.duplicate(true)
 		for h in map.y:
 			for w in map.x:
 				var neigbor_count = 0
