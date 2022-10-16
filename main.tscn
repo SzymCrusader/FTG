@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://r2d4dviit48"]
+[gd_scene load_steps=4 format=3 uid="uid://r2d4dviit48"]
 
 [ext_resource type="PackedScene" uid="uid://k7fwcvxhw8k7" path="res://player.tscn" id="1_f8iap"]
+[ext_resource type="Texture2D" uid="uid://bvnehfcdiihj2" path="res://bluieprint_ulgy_bg.jpg" id="2_xj484"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0iv0f"]
 load_path = "res://.godot/imported/tileset.png-a39e944f25b35d62f55d4f98a36e2b5e.ctex"
@@ -585,3 +586,15 @@ position = Vector2(-1, 0)
 polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
 
 [node name="Player" parent="." instance=ExtResource("1_f8iap")]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scale = Vector2(4, 4)
+transform = Transform2D(4, 0, 0, 4, 0, 0)
+scroll_base_scale = Vector2(0.25, 0.25)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(612, 414)
+
+[node name="Sprite2d" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(101, 9)
+texture = ExtResource("2_xj484")

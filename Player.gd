@@ -19,21 +19,29 @@ var IS_APEX = false
 
 var jump_ended_early = false
 var jump_ended = false
-var jumping = false
+@export var jumping = false
 @onready var _fall_speed = 2
 @export var jump_ended_early_gravity_modifier = 2
 @export var max_fall_speed = 4
 
+@onready var smp = get_node("StateMachinePlayer")
 
-func _physics_process(delta):
+var walk_direction = 0
+
+
+
+func __physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		if Input.is_action_just_pressed("player_up"): 
 			jumping = true
+			smp.set_trigger("jump")
 			JUMP_BUFFER.start()
 			
 		if Input.is_action_just_released("player_up"):
+			smp.set_trigger("falling")
 			if velocity.y<0:
+				
 				jump_ended_early = true
 				JUMP_END = true
 				print("early end")
@@ -94,3 +102,69 @@ func calculate_gravity(delta):
 	if velocity.y > max_fall_speed: 
 		velocity.y = max_fall_speed
 	
+func _physics_process(delta):
+	if Input.is_action_pressed("player_up"):
+		JUMP_BUFFER.start()
+		smp.set_trigger("jump")
+	var direction = Input.get_axis("player_left", "player_right")
+	
+	smp.set_param("direction", direction)
+	smp.set_param("velocity.x", velocity.x)
+	smp.set_param("velocity.y", velocity.y)
+	
+	
+func _horizontal_movement(direction):
+	velocity.x = direction * (SPEED + APEX_BONUS)
+	
+	
+func _on_state_machine_player_updated(state, delta):
+	var direction = smp.get_param("direction")
+	_horizontal_movement(direction)
+	$StateDebug.text = state
+	match state:
+		"Idle":
+			pass
+		"Moving":
+			pass
+		"Jumping":			
+			if JUMP_DISTANCE >= MAX_JUMP:
+				smp.set_trigger("fall")
+			JUMP_DISTANCE += JUMP_FORCE
+			velocity.y = JUMP_FORCE * (-1)
+			if JUMP_FORCE < MAX_JUMP_FORCE:
+				JUMP_FORCE *= 1.5
+			if Input.is_action_just_released("player_up"):
+				smp.set_trigger("fall")
+				
+			if Input.is_action_pressed("player_up") and JUMP_DISTANCE<=MAX_JUMP and not JUMP_END and not IS_APEX:
+				JUMP_DISTANCE += JUMP_FORCE
+				velocity.y = JUMP_FORCE * (-1)
+				if JUMP_FORCE < MAX_JUMP_FORCE:
+					JUMP_FORCE *= 1.5
+					
+			if (is_on_floor() or COYOTE.time_left>0) and (Input.is_action_just_pressed("player_up") or JUMP_BUFFER.time_left>0):
+				IS_APEX = false
+				JUMP_END = false
+				JUMP_DISTANCE = 0
+				JUMP_FORCE = 300
+				jump_ended_early = false
+				velocity.y = JUMP_FORCE * (-1)
+		"Falling":
+			JUMP_FORCE = 300
+			JUMP_DISTANCE = 0
+			velocity.y = 750
+			
+	calculate_gravity(delta)
+	move_and_slide()
+		
+
+
+func _on_state_machine_player_transited(from, to):
+	print(from, " -> ", to)
+	match from:
+		"Idle":
+			pass
+			
+	match to:
+		"Idle":
+			pass

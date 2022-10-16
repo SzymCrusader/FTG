@@ -1,7 +1,175 @@
-[gd_scene load_steps=4 format=3 uid="uid://k7fwcvxhw8k7"]
+[gd_scene load_steps=31 format=3 uid="uid://k7fwcvxhw8k7"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_6l8ii"]
 [ext_resource type="Texture2D" uid="uid://cw7xdshcbqam1" path="res://char.png" id="2_kyfad"]
+[ext_resource type="Script" path="res://addons/imjp94.yafsm/src/StateMachinePlayer.gd" id="3_foan5"]
+[ext_resource type="Script" path="res://addons/imjp94.yafsm/src/states/StateMachine.gd" id="4_f11sc"]
+[ext_resource type="Script" path="res://addons/imjp94.yafsm/src/states/State.gd" id="5_xn318"]
+[ext_resource type="Script" path="res://addons/imjp94.yafsm/src/transitions/Transition.gd" id="6_hnomx"]
+[ext_resource type="Script" path="res://addons/imjp94.yafsm/src/conditions/FloatCondition.gd" id="6_o66jx"]
+[ext_resource type="Script" path="res://addons/imjp94.yafsm/src/conditions/Condition.gd" id="7_nj37d"]
+
+[sub_resource type="Resource" id="Resource_icdhe"]
+script = ExtResource("5_xn318")
+name = "Entry"
+metadata/graph_offset = Vector2(484, -78.5)
+
+[sub_resource type="Resource" id="Resource_y1aiv"]
+script = ExtResource("5_xn318")
+name = "Falling"
+metadata/graph_offset = Vector2(721, 361.5)
+
+[sub_resource type="Resource" id="Resource_p640e"]
+script = ExtResource("5_xn318")
+name = "Idle"
+metadata/graph_offset = Vector2(484, 1.5)
+
+[sub_resource type="Resource" id="Resource_0cs6r"]
+script = ExtResource("5_xn318")
+name = "Jumping"
+metadata/graph_offset = Vector2(455, 241.5)
+
+[sub_resource type="Resource" id="Resource_dr3qs"]
+script = ExtResource("5_xn318")
+name = "Moving"
+metadata/graph_offset = Vector2(98.5, 381.5)
+
+[sub_resource type="Resource" id="Resource_dmsbo"]
+script = ExtResource("6_hnomx")
+from = "Entry"
+to = "Idle"
+conditions = {}
+priority = 0
+
+[sub_resource type="Resource" id="Resource_hhogj"]
+script = ExtResource("6_o66jx")
+value = 0.0
+comparation = 0
+name = "velocity.y"
+
+[sub_resource type="Resource" id="Resource_mpax5"]
+script = ExtResource("6_hnomx")
+from = "Falling"
+to = "Idle"
+conditions = {
+"velocity.y": SubResource("Resource_hhogj")
+}
+priority = 0
+
+[sub_resource type="Resource" id="Resource_6odw3"]
+script = ExtResource("6_o66jx")
+value = 0.0
+comparation = 2
+name = "velocity.y"
+
+[sub_resource type="Resource" id="Resource_d5bs3"]
+script = ExtResource("6_hnomx")
+from = "Idle"
+to = "Falling"
+conditions = {
+"velocity.y": SubResource("Resource_6odw3")
+}
+priority = 0
+
+[sub_resource type="Resource" id="Resource_ubpm6"]
+script = ExtResource("7_nj37d")
+name = "jump"
+
+[sub_resource type="Resource" id="Resource_ricg4"]
+script = ExtResource("6_hnomx")
+from = "Idle"
+to = "Jumping"
+conditions = {
+"jump": SubResource("Resource_ubpm6")
+}
+priority = 0
+
+[sub_resource type="Resource" id="Resource_vuhdp"]
+script = ExtResource("6_o66jx")
+value = 0.0
+comparation = 1
+name = "velocity.x"
+
+[sub_resource type="Resource" id="Resource_jrw7g"]
+script = ExtResource("6_hnomx")
+from = "Idle"
+to = "Moving"
+conditions = {
+"velocity.x": SubResource("Resource_vuhdp")
+}
+priority = 0
+
+[sub_resource type="Resource" id="Resource_3l5un"]
+script = ExtResource("7_nj37d")
+name = "fall"
+
+[sub_resource type="Resource" id="Resource_vn6tj"]
+script = ExtResource("6_hnomx")
+from = "Jumping"
+to = "Falling"
+conditions = {
+"fall": SubResource("Resource_3l5un")
+}
+priority = 0
+
+[sub_resource type="Resource" id="Resource_y1jy1"]
+script = ExtResource("6_o66jx")
+value = 0.0
+comparation = 0
+name = "velocity.x"
+
+[sub_resource type="Resource" id="Resource_udb54"]
+script = ExtResource("6_hnomx")
+from = "Moving"
+to = "Idle"
+conditions = {
+"velocity.x": SubResource("Resource_y1jy1")
+}
+priority = 0
+
+[sub_resource type="Resource" id="Resource_6632l"]
+script = ExtResource("7_nj37d")
+name = "jump"
+
+[sub_resource type="Resource" id="Resource_yh0eu"]
+script = ExtResource("6_hnomx")
+from = &"Moving"
+to = &"Jumping"
+conditions = {
+"jump": SubResource("Resource_6632l")
+}
+priority = 0
+
+[sub_resource type="Resource" id="Resource_ohro3"]
+script = ExtResource("4_f11sc")
+states = {
+"Entry": SubResource("Resource_icdhe"),
+"Falling": SubResource("Resource_y1aiv"),
+"Idle": SubResource("Resource_p640e"),
+"Jumping": SubResource("Resource_0cs6r"),
+"Moving": SubResource("Resource_dr3qs")
+}
+transitions = {
+"Entry": {
+"Idle": SubResource("Resource_dmsbo")
+},
+"Falling": {
+"Idle": SubResource("Resource_mpax5")
+},
+"Idle": {
+"Falling": SubResource("Resource_d5bs3"),
+"Jumping": SubResource("Resource_ricg4"),
+"Moving": SubResource("Resource_jrw7g")
+},
+"Jumping": {
+"Falling": SubResource("Resource_vn6tj")
+},
+"Moving": {
+"Idle": SubResource("Resource_udb54"),
+"Jumping": SubResource("Resource_yh0eu")
+}
+}
+name = ""
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_as157"]
 radius = 20.0
@@ -9,10 +177,22 @@ height = 60.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_6l8ii")
-MAX_JUMP = 11000
+MAX_JUMP = 200000
 jump_ended_early_gravity_modifier = 15
 max_fall_speed = 40000
 metadata/_edit_group_ = true
+
+[node name="StateDebug" type="Label" parent="."]
+offset_left = -40.0
+offset_top = -56.0
+offset_right = 40.0
+offset_bottom = -26.0
+text = "Test"
+horizontal_alignment = 1
+
+[node name="StateMachinePlayer" type="Node" parent="."]
+script = ExtResource("3_foan5")
+state_machine = SubResource("Resource_ohro3")
 
 [node name="Char" type="Sprite2D" parent="."]
 texture = ExtResource("2_kyfad")
@@ -36,3 +216,6 @@ metadata/_edit_group_ = true
 [node name="ApexTimer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
+[connection signal="transited" from="StateMachinePlayer" to="." method="_on_state_machine_player_transited"]
+[connection signal="updated" from="StateMachinePlayer" to="." method="_on_state_machine_player_updated"]
