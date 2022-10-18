@@ -1,0 +1,25 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://cegrdwvdtd6rp"]
+
+[ext_resource type="Texture2D" uid="uid://clhhmcho0bh6o" path="res://sandbox/world_gen/T_air.png" id="1_rek4c"]
+[ext_resource type="Texture2D" uid="uid://locs2j5i4o7b" path="res://sandbox/world_gen/T_dirt_placeholder.png" id="2_2brmc"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8s231"]
+resource_name = "air"
+texture = ExtResource("1_rek4c")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yh23q"]
+resource_name = "dirt"
+texture = ExtResource("2_2brmc")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_1/angular_velocity = 0.0
+0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[resource]
+physics_layer_0/collision_layer = 1
+physics_layer_1/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_8s231")
+sources/1 = SubResource("TileSetAtlasSource_yh23q")
