@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://r2d4dviit48"]
 
-[ext_resource type="PackedScene" uid="uid://k7fwcvxhw8k7" path="res://player.tscn" id="1_f8iap"]
+[ext_resource type="PackedScene" uid="uid://0gti86el2cmt" path="res://player/player.tscn" id="1_o3j75"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0iv0f"]
 load_path = "res://.godot/imported/tileset.png-a39e944f25b35d62f55d4f98a36e2b5e.ctex"
@@ -584,4 +584,5 @@ position = Vector2(-1, 0)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor46/StaticBody2D"]
 polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
 
-[node name="Player" parent="." instance=ExtResource("1_f8iap")]
+[node name="player" parent="." instance=ExtResource("1_o3j75")]
+position = Vector2(-8, -72)
