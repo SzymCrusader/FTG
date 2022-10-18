@@ -8,6 +8,22 @@
 
 config_version=5
 
+_global_script_classes=[{
+"base": "Node",
+"class": &"BaseState",
+"language": &"GDScript",
+"path": "res://player/states/base_state.gd"
+}, {
+"base": "CharacterBody2D",
+"class": &"Player",
+"language": &"GDScript",
+"path": "res://player/player.gd"
+}]
+_global_script_class_icons={
+"BaseState": "",
+"Player": ""
+}
+
 [application]
 
 config/name="FTG"

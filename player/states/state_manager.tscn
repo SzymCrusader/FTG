@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbnr33qykrlf8"]
+
+[ext_resource type="Script" path="res://player/states/state_manager.gd" id="1_udpkj"]
+[ext_resource type="Script" path="res://player/states/idle.gd" id="2_0yn5y"]
+[ext_resource type="Script" path="res://player/states/walk.gd" id="3_1c44s"]
+[ext_resource type="Script" path="res://player/states/jump.gd" id="4_ilddd"]
+[ext_resource type="Script" path="res://player/states/fall.gd" id="5_emqr3"]
+
+[node name="state_manager" type="Node"]
+script = ExtResource("1_udpkj")
+
+[node name="idle" type="Node" parent="."]
+script = ExtResource("2_0yn5y")
+
+[node name="walk" type="Node" parent="."]
+script = ExtResource("3_1c44s")
+move_speed = 300.0
+
+[node name="jump" type="Node" parent="."]
+script = ExtResource("4_ilddd")
+jump_force = 300.0
+move_speed = 300.0
+
+[node name="fall" type="Node" parent="."]
+script = ExtResource("5_emqr3")
+move_speed = 300.0
