@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://k7fwcvxhw8k7"]
+[gd_scene load_steps=5 format=3 uid="uid://k7fwcvxhw8k7"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_6l8ii"]
 [ext_resource type="Texture2D" uid="uid://cw7xdshcbqam1" path="res://char.png" id="2_kyfad"]
+[ext_resource type="Script" path="res://BlockPlacing.gd" id="3_6pf5h"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_as157"]
 radius = 20.0
@@ -36,3 +37,6 @@ metadata/_edit_group_ = true
 [node name="ApexTimer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
+[node name="BlockPlacing" type="Node2D" parent="."]
+script = ExtResource("3_6pf5h")

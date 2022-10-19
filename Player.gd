@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var wasonfloor = true
 
+
 @onready var APEX_BONUS = 0.0
 @export var SPEED = 300.0
 @export var JUMP_FORCE = 300
@@ -24,8 +25,8 @@ var jumping = false
 @export var jump_ended_early_gravity_modifier = 2
 @export var max_fall_speed = 4
 
-
 func _physics_process(delta):
+	
 	# Add the gravity.
 	if not is_on_floor():
 		if Input.is_action_just_pressed("player_up"): 
@@ -56,8 +57,7 @@ func _physics_process(delta):
 		#if APEX_TIMER.time_left<=0:
 		calculate_gravity(delta)
 
-	# Handle Jump.
-
+	# Handle Jump.		
 	if (is_on_floor() or COYOTE.time_left>0) and (Input.is_action_just_pressed("player_up") or JUMP_BUFFER.time_left>0):
 		IS_APEX = false
 		JUMP_END = false
@@ -86,6 +86,8 @@ func _physics_process(delta):
 		wasonfloor = false
 		COYOTE.start()
 
+
+	
 func calculate_gravity(delta):
 	var fall_speed = gravity * jump_ended_early_gravity_modifier if jump_ended_early and velocity.y < 0 else gravity
 	if jump_ended_early and velocity.y < 0:

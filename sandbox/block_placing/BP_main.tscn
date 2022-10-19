@@ -1,0 +1,594 @@
+[gd_scene load_steps=4 format=3 uid="uid://b27me8l6fcvsb"]
+
+[ext_resource type="PackedScene" uid="uid://k7fwcvxhw8k7" path="res://player.tscn" id="1_f8iap"]
+[ext_resource type="TileSet" uid="uid://cegrdwvdtd6rp" path="res://sandbox/world_gen/dirt.tres" id="2_tnqle"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0iv0f"]
+load_path = "res://.godot/imported/tileset.png-a39e944f25b35d62f55d4f98a36e2b5e.ctex"
+
+[node name="level" type="Node2D"]
+position = Vector2(206, 4)
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Floor" type="Sprite2D" parent="Node"]
+position = Vector2(131, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor2" type="Sprite2D" parent="Node"]
+position = Vector2(181, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor2"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor2/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor3" type="Sprite2D" parent="Node"]
+position = Vector2(231, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor3"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor3/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor4" type="Sprite2D" parent="Node"]
+position = Vector2(281, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor4"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor4/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor5" type="Sprite2D" parent="Node"]
+position = Vector2(331, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor5"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor5/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor6" type="Sprite2D" parent="Node"]
+position = Vector2(381, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor6"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor6/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor21" type="Sprite2D" parent="Node"]
+position = Vector2(359, -75)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor21"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor21/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor22" type="Sprite2D" parent="Node"]
+position = Vector2(409, -75)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor22"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor22/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor23" type="Sprite2D" parent="Node"]
+position = Vector2(459, -75)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor23"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor23/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor24" type="Sprite2D" parent="Node"]
+position = Vector2(509, -75)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor24"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor24/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor25" type="Sprite2D" parent="Node"]
+position = Vector2(559, -75)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor25"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor25/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor26" type="Sprite2D" parent="Node"]
+position = Vector2(609, -75)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor26"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor26/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor47" type="Sprite2D" parent="Node"]
+position = Vector2(896, -77)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor47"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor47/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor48" type="Sprite2D" parent="Node"]
+position = Vector2(946, -77)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor48"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor48/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor49" type="Sprite2D" parent="Node"]
+position = Vector2(996, -77)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor49"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor49/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor50" type="Sprite2D" parent="Node"]
+position = Vector2(1046, -77)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor50"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor50/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor51" type="Sprite2D" parent="Node"]
+position = Vector2(1096, -77)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor51"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor51/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor52" type="Sprite2D" parent="Node"]
+position = Vector2(1146, -77)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor52"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor52/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor7" type="Sprite2D" parent="Node"]
+position = Vector2(431, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor7"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor7/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor8" type="Sprite2D" parent="Node"]
+position = Vector2(481, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor8"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor8/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor9" type="Sprite2D" parent="Node"]
+position = Vector2(531, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor9"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor9/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor10" type="Sprite2D" parent="Node"]
+position = Vector2(581, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor10"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor10/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor11" type="Sprite2D" parent="Node"]
+position = Vector2(631, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor11"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor11/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor12" type="Sprite2D" parent="Node"]
+position = Vector2(681, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor12"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor12/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor13" type="Sprite2D" parent="Node"]
+position = Vector2(731, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor13"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor13/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor14" type="Sprite2D" parent="Node"]
+position = Vector2(781, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor14"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor14/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor15" type="Sprite2D" parent="Node"]
+position = Vector2(831, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor15"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor15/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor16" type="Sprite2D" parent="Node"]
+position = Vector2(881, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor16"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor16/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor17" type="Sprite2D" parent="Node"]
+position = Vector2(931, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor17"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor17/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor18" type="Sprite2D" parent="Node"]
+position = Vector2(981, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor18"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor18/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor19" type="Sprite2D" parent="Node"]
+position = Vector2(1031, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor19"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor19/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor20" type="Sprite2D" parent="Node"]
+position = Vector2(1081, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor20"]
+position = Vector2(-1, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor20/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor27" type="Sprite2D" parent="Node"]
+position = Vector2(1131, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor27"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor27/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor28" type="Sprite2D" parent="Node"]
+position = Vector2(1181, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor28"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor28/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor29" type="Sprite2D" parent="Node"]
+position = Vector2(1231, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor29"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor29/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor30" type="Sprite2D" parent="Node"]
+position = Vector2(1281, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor30"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor30/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor31" type="Sprite2D" parent="Node"]
+position = Vector2(1331, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor31"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor31/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor32" type="Sprite2D" parent="Node"]
+position = Vector2(1381, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor32"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor32/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor33" type="Sprite2D" parent="Node"]
+position = Vector2(1431, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor33"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor33/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor34" type="Sprite2D" parent="Node"]
+position = Vector2(1481, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor34"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor34/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor35" type="Sprite2D" parent="Node"]
+position = Vector2(1531, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor35"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor35/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor36" type="Sprite2D" parent="Node"]
+position = Vector2(1581, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor36"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor36/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor37" type="Sprite2D" parent="Node"]
+position = Vector2(1631, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor37"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor37/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor38" type="Sprite2D" parent="Node"]
+position = Vector2(1681, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor38"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor38/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor39" type="Sprite2D" parent="Node"]
+position = Vector2(1731, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor39"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor39/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor40" type="Sprite2D" parent="Node"]
+position = Vector2(1781, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor40"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor40/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor41" type="Sprite2D" parent="Node"]
+position = Vector2(1831, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor41"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor41/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor42" type="Sprite2D" parent="Node"]
+position = Vector2(1881, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor42"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor42/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor43" type="Sprite2D" parent="Node"]
+position = Vector2(1931, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor43"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor43/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor44" type="Sprite2D" parent="Node"]
+position = Vector2(1981, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor44"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor44/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor45" type="Sprite2D" parent="Node"]
+position = Vector2(2031, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor45"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor45/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Floor46" type="Sprite2D" parent="Node"]
+position = Vector2(2081, 93)
+texture = SubResource("CompressedTexture2D_0iv0f")
+region_enabled = true
+region_rect = Rect2(50, 0, 50, 50)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node/Floor46"]
+position = Vector2(-1, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Floor46/StaticBody2D"]
+polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[node name="Player" parent="." instance=ExtResource("1_f8iap")]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_tnqle")
+collision_animatable = true
+format = 2
+layer_0/tile_data = PackedInt32Array(196608, 1, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 1, 0, 196614, 1, 0, 196615, 1, 0, 196616, 1, 0, 196617, 1, 0, 196618, 1, 0, 196619, 1, 0, 196620, 1, 0, 131078, 1, 0, 131077, 1, 0, 131076, 1, 0, 131075, 1, 0, 131074, 1, 0, 131073, 1, 0, 131072, 1, 0, 196607, 1, 0, 196606, 1, 0)
