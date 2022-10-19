@@ -10,7 +10,7 @@ func _unhandled_input(event):
 
 func place(block_id: int) -> void:
 	var map_pos = tiles.local_to_map(get_global_mouse_position())
-	if  tiles.get_cell_source_id(0,map_pos) != block_id:
+	if  tiles.get_cell_source_id(0, map_pos) != block_id:
 		print("place")
 		tiles.set_cell(0, map_pos, block_id, Vector2i(0, 0))
 
