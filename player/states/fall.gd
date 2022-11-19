@@ -2,7 +2,13 @@ extends BaseState
 
 @export var move_speed: float = 60
 
-func physics_process(delta: float) -> int:
+@export var idle_node: NodePath
+@export var walk_node: NodePath
+
+@onready var idle_state: BaseState = get_node(idle_node)
+@onready var walk_state: BaseState = get_node(walk_node)
+
+func physics_process(delta: float) -> BaseState:
 	var move = 0
 	if Input.is_action_pressed("player_left"):
 		move = -1
@@ -17,7 +23,7 @@ func physics_process(delta: float) -> int:
 
 	if player.is_on_floor():
 		if move != 0:
-			return State.Walk
+			return walk_state
 		else:
-			return State.Idle
-	return State.Null
+			return idle_state
+	return null
