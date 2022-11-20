@@ -13,7 +13,7 @@ extends BaseState
 func input(event: InputEvent) -> BaseState:
 	if Input.is_action_just_pressed("player_left") or Input.is_action_just_pressed("player_right"):
 		return walk_state
-	elif Input.is_action_just_pressed("player_up"):
+	elif Input.is_action_just_pressed("player_jump"):
 		return jump_state
 	return null
 

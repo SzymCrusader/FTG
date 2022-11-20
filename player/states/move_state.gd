@@ -16,7 +16,7 @@ extends BaseState
 @onready var run_state: BaseState = get_node(run_node)
 
 func input(event: InputEvent) -> BaseState:
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("player_jump"):
 		return jump_state
 	return null
 	

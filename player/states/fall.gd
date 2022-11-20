@@ -1,6 +1,7 @@
 extends BaseState
 
 @export var move_speed: float = 60
+@export var fall_gravity_multiplier: float = 4
 
 @export var idle_node: NodePath
 @export var walk_node: NodePath
@@ -18,7 +19,7 @@ func physics_process(delta: float) -> BaseState:
 #		player.animations.flip_h = false
 	
 	player.velocity.x = move * move_speed
-	player.velocity.y += player.gravity
+	player.velocity.y += player.gravity * fall_gravity_multiplier
 	player.move_and_slide()
 
 	if player.is_on_floor():

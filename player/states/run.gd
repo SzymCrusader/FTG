@@ -5,7 +5,7 @@ func input(event: InputEvent) -> BaseState:
 	if new_state:
 		return new_state
 		
-	if Input.is_action_just_released("run"):
+	if Input.is_action_just_released("player_run"):
 		return walk_state
 	
 	return null

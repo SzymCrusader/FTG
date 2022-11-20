@@ -25,8 +25,6 @@ fall_node = NodePath("../fall")
 walk_node = NodePath("../move_state/walk")
 run_node = NodePath("../move_state/run")
 idle_node = NodePath("../idle")
-jump_force = 300.0
-move_speed = 300.0
 
 [node name="fall" type="Node" parent="."]
 script = ExtResource("5_emqr3")
