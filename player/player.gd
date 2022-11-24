@@ -3,8 +3,7 @@ extends CharacterBody2D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 #var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var gravity = 4
-
+var gravity = 16
 @onready var states = $state_manager
 @onready var debug_state_label = $debug_state_label
 

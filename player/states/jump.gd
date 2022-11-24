@@ -10,7 +10,7 @@ extends BaseState
 @onready var run_state: BaseState = get_node(run_node)
 @onready var idle_state: BaseState = get_node(idle_node)
 
-@export var jump_force: float = 300
+@export var jump_force: float = 300 * 2
 @export var move_speed:float = 300
 
 func enter() -> void:
@@ -28,7 +28,7 @@ func physics_process(delta: float) -> BaseState:
 		move = 1
 #		player.animations.flip_h = false
 
-	if Input.is_action_just_released("player_jump"):
+	if Input.is_action_just_released("player_jump") or !Input.is_action_pressed("player_jump"):
 		player.velocity.y = 0
 	
 	player.velocity.x = move * move_speed

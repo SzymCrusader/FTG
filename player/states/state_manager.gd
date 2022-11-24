@@ -7,10 +7,13 @@ extends Node
 var current_state: BaseState
 
 func change_state(new_state: BaseState) -> void:
+	var old_state = current_state
 	if current_state:
-		current_state.exit()
-
+		current_state.exit()	
+	
 	current_state = new_state
+	if old_state:
+		current_state.transition(old_state, new_state)
 	current_state.enter()
 	
 # Initialize the state machine by giving each state a reference to the objects

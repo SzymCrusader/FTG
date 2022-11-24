@@ -11,6 +11,9 @@ func enter() -> void:
 func exit() -> void:
 	pass
 	
+func transition(old: BaseState, new: BaseState) -> void:
+	pass
+	
 func input(event: InputEvent) -> BaseState:
 	return null
 	

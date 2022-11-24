@@ -29,8 +29,11 @@ idle_node = NodePath("../idle")
 [node name="fall" type="Node" parent="."]
 script = ExtResource("5_emqr3")
 move_speed = 300.0
+fall_gravity_multiplier = 2.0
+jump_buffer_time = 0.25
 idle_node = NodePath("../idle")
 walk_node = NodePath("../move_state/walk")
+jump_node = NodePath("../jump")
 
 [node name="move_state" type="Node" parent="."]
 script = ExtResource("1_umy8h")
