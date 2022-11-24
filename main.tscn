@@ -1,11 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://r2d4dviit48"]
+[gd_scene load_steps=4 format=3 uid="uid://r2d4dviit48"]
 
 [ext_resource type="PackedScene" uid="uid://0gti86el2cmt" path="res://player/player.tscn" id="1_o3j75"]
+[ext_resource type="TileSet" uid="uid://cegrdwvdtd6rp" path="res://sandbox/world_gen/dirt.tres" id="2_6vaoy"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0iv0f"]
 load_path = "res://.godot/imported/tileset.png-a39e944f25b35d62f55d4f98a36e2b5e.ctex"
 
-[node name="Node2d" type="Node2D"]
+[node name="level" type="Node2D"]
 position = Vector2(206, 4)
 
 [node name="Node" type="Node" parent="."]
@@ -586,3 +587,9 @@ polygon = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
 
 [node name="player" parent="." instance=ExtResource("1_o3j75")]
 position = Vector2(-31, -19)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_6vaoy")
+collision_animatable = true
+format = 2
+layer_0/tile_data = PackedInt32Array(196608, 1, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 1, 0, 196614, 1, 0, 196615, 1, 0, 196616, 1, 0, 196617, 1, 0, 196618, 1, 0, 196619, 1, 0, 196620, 1, 0, 131078, 1, 0, 131077, 1, 0, 131076, 1, 0, 131075, 1, 0, 131074, 1, 0, 131073, 1, 0, 131072, 1, 0, 196607, 1, 0, 196606, 1, 0)

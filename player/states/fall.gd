@@ -38,7 +38,6 @@ func input(event: InputEvent) -> BaseState:
 func physics_process(delta: float) -> BaseState:
 	jump_buffer_timer -= delta
 	coyote_timer -= delta
-#	print(coyote_timer)
 	
 	var move = 0
 	if Input.is_action_pressed("player_left"):
@@ -54,7 +53,6 @@ func physics_process(delta: float) -> BaseState:
 
 	if player.is_on_floor():
 		if jump_buffer_timer > 0:
-			print("jump")
 			return jump_state
 		if move != 0:
 			return walk_state

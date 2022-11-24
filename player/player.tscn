@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://0gti86el2cmt"]
+[gd_scene load_steps=6 format=3 uid="uid://0gti86el2cmt"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_ey1w6"]
 [ext_resource type="Texture2D" uid="uid://cw7xdshcbqam1" path="res://char.png" id="1_kayyu"]
 [ext_resource type="PackedScene" uid="uid://cbnr33qykrlf8" path="res://player/states/state_manager.tscn" id="2_xkl8k"]
+[ext_resource type="Script" path="res://BlockPlacing.gd" id="4_qxyy1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8mc5c"]
 radius = 20.0
@@ -17,22 +18,10 @@ texture = ExtResource("1_kayyu")
 [node name="Camera2d" type="Camera2D" parent="."]
 current = true
 
-[node name="JumpBuffer" type="Timer" parent="."]
-wait_time = 0.1
-one_shot = true
-
-[node name="CoyoteTime" type="Timer" parent="."]
-wait_time = 0.2
-one_shot = true
-
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 0)
 shape = SubResource("CapsuleShape2D_8mc5c")
 metadata/_edit_group_ = true
-
-[node name="ApexTimer" type="Timer" parent="."]
-wait_time = 0.2
-one_shot = true
 
 [node name="state_manager" parent="." instance=ExtResource("2_xkl8k")]
 
@@ -43,3 +32,6 @@ offset_right = 20.0
 offset_bottom = -41.0
 text = "Test"
 horizontal_alignment = 1
+
+[node name="BlockPlacing" type="Node2D" parent="."]
+script = ExtResource("4_qxyy1")
