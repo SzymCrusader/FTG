@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://cbnr33qykrlf8"]
+
+[ext_resource type="Script" path="res://player/states/move_state.gd" id="1_umy8h"]
+[ext_resource type="Script" path="res://player/states/state_manager.gd" id="1_vo4e1"]
+[ext_resource type="Script" path="res://player/states/idle.gd" id="2_0yn5y"]
+[ext_resource type="Script" path="res://player/states/jump.gd" id="4_ilddd"]
+[ext_resource type="Script" path="res://player/states/run.gd" id="5_e3mgg"]
+[ext_resource type="Script" path="res://player/states/fall.gd" id="5_emqr3"]
+[ext_resource type="Script" path="res://player/states/walk.gd" id="6_cstdj"]
+
+[node name="state_manager" type="Node"]
+script = ExtResource("1_vo4e1")
+starting_state = NodePath("idle")
+
+[node name="idle" type="Node" parent="."]
+script = ExtResource("2_0yn5y")
+jump_node = NodePath("../jump")
+fall_node = NodePath("../fall")
+walk_node = NodePath("../move_state/walk")
+run_node = NodePath("../move_state/run")
+
+[node name="jump" type="Node" parent="."]
+script = ExtResource("4_ilddd")
+fall_node = NodePath("../fall")
+walk_node = NodePath("../move_state/walk")
+run_node = NodePath("../move_state/run")
+idle_node = NodePath("../idle")
+
+[node name="fall" type="Node" parent="."]
+script = ExtResource("5_emqr3")
+move_speed = 300.0
+fall_gravity_multiplier = 2.0
+jump_buffer_time = 0.25
+idle_node = NodePath("../idle")
+walk_node = NodePath("../move_state/walk")
+jump_node = NodePath("../jump")
+
+[node name="move_state" type="Node" parent="."]
+script = ExtResource("1_umy8h")
+idle_node = NodePath("../idle")
+jump_node = NodePath("../jump")
+fall_node = NodePath("../fall")
+walk_node = NodePath("walk")
+run_node = NodePath("run")
+
+[node name="run" type="Node" parent="move_state"]
+script = ExtResource("5_e3mgg")
+move_speed = 600.0
+idle_node = NodePath("../../idle")
+jump_node = NodePath("../../jump")
+fall_node = NodePath("../../fall")
+walk_node = NodePath("../walk")
+run_node = NodePath(".")
+
+[node name="walk" type="Node" parent="move_state"]
+script = ExtResource("6_cstdj")
+move_speed = 300.0
+idle_node = NodePath("../../idle")
+jump_node = NodePath("../../jump")
+fall_node = NodePath("../../fall")
+walk_node = NodePath(".")
+run_node = NodePath("../run")
