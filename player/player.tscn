@@ -1,25 +1,26 @@
 [gd_scene load_steps=6 format=3 uid="uid://0gti86el2cmt"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_ey1w6"]
-[ext_resource type="Texture2D" uid="uid://cw7xdshcbqam1" path="res://char.png" id="1_kayyu"]
+[ext_resource type="Texture2D" uid="uid://d4ja6deofmww7" path="res://player/T_Boyo.png" id="2_aa52r"]
 [ext_resource type="PackedScene" uid="uid://cbnr33qykrlf8" path="res://player/states/state_manager.tscn" id="2_xkl8k"]
 [ext_resource type="Script" path="res://BlockPlacing.gd" id="4_qxyy1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8mc5c"]
-radius = 20.0
-height = 60.0
+radius = 5.0
+height = 18.0
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_ey1w6")
 
 [node name="Char" type="Sprite2D" parent="."]
-texture = ExtResource("1_kayyu")
+texture = ExtResource("2_aa52r")
 
 [node name="Camera2d" type="Camera2D" parent="."]
 current = true
+zoom = Vector2(4, 4)
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 0)
+position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_8mc5c")
 metadata/_edit_group_ = true
 
