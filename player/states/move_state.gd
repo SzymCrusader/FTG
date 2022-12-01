@@ -20,7 +20,6 @@ func input(event: InputEvent) -> State:
 		return jump_state
 	return null
 	
-	
 func physics_process(delta: float) -> State:
 	if !player.is_on_floor():
 		return fall_state
