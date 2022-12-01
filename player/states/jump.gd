@@ -1,14 +1,14 @@
-extends BaseState
+extends State
 
 @export var fall_node: NodePath
 @export var walk_node: NodePath
 @export var run_node: NodePath
 @export var idle_node: NodePath
 
-@onready var fall_state: BaseState = get_node(fall_node)
-@onready var walk_state: BaseState = get_node(walk_node)
-@onready var run_state: BaseState = get_node(run_node)
-@onready var idle_state: BaseState = get_node(idle_node)
+@onready var fall_state: State = get_node(fall_node)
+@onready var walk_state: State = get_node(walk_node)
+@onready var run_state: State = get_node(run_node)
+@onready var idle_state: State = get_node(idle_node)
 
 @export var jump_force: float = 300 * 2
 @export var move_speed:float = 300
@@ -19,7 +19,7 @@ func enter() -> void:
 	super.enter()
 	player.velocity.y = -jump_force
 
-func physics_process(delta: float) -> BaseState:
+func physics_process(delta: float) -> State:
 	var move = 0
 	if Input.is_action_pressed("player_left"):
 		move = -1

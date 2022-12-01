@@ -9,12 +9,7 @@
 config_version=5
 
 _global_script_classes=[{
-"base": "Node",
-"class": &"BaseState",
-"language": &"GDScript",
-"path": "res://player/states/base_state.gd"
-}, {
-"base": "BaseState",
+"base": "State",
 "class": &"MoveState",
 "language": &"GDScript",
 "path": "res://player/states/move_state.gd"
@@ -23,11 +18,16 @@ _global_script_classes=[{
 "class": &"Player",
 "language": &"GDScript",
 "path": "res://player/player.gd"
+}, {
+"base": "Node",
+"class": &"State",
+"language": &"GDScript",
+"path": "res://player/states/state.gd"
 }]
 _global_script_class_icons={
-"BaseState": "",
 "MoveState": "",
-"Player": ""
+"Player": "",
+"State": ""
 }
 
 [application]

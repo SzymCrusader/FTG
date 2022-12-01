@@ -1,4 +1,4 @@
-extends BaseState
+extends State
 
 @export var move_speed: float = 60
 @export var fall_gravity_multiplier: float = 4
@@ -9,9 +9,9 @@ extends BaseState
 @export var walk_node: NodePath
 @export var jump_node: NodePath
 
-@onready var idle_state: BaseState = get_node(idle_node)
-@onready var walk_state: BaseState = get_node(walk_node)
-@onready var jump_state: BaseState = get_node(jump_node)
+@onready var idle_state: State = get_node(idle_node)
+@onready var walk_state: State = get_node(walk_node)
+@onready var jump_state: State = get_node(jump_node)
 
 var jump_buffer_timer: float = 0.0 
 var coyote_timer:float = 0.0
@@ -20,14 +20,14 @@ func enter() -> void:
 		super.enter()
 		jump_buffer_timer = 0
 		
-func transition(old: BaseState, new: BaseState) -> void:
+func transition(old: State, new: State) -> void:
 	super.transition(old, new)
 	if old != jump_state:
 		coyote_timer = coyote_time
 	else:
 		coyote_timer = 0
 
-func input(event: InputEvent) -> BaseState:
+func input(event: InputEvent) -> State:
 	if Input.is_action_just_pressed("player_jump"):
 		jump_buffer_timer = jump_buffer_time
 		if coyote_timer > 0:
@@ -35,7 +35,7 @@ func input(event: InputEvent) -> BaseState:
 		
 	return null
 
-func physics_process(delta: float) -> BaseState:
+func physics_process(delta: float) -> State:
 	jump_buffer_timer -= delta
 	coyote_timer -= delta
 	

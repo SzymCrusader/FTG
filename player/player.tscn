@@ -6,11 +6,11 @@
 [ext_resource type="Script" path="res://BlockPlacing.gd" id="4_qxyy1"]
 [ext_resource type="Script" path="res://player/Networking.gd" id="5_e0nlq"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wg1m1"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y080r"]
 radius = 5.0
 height = 18.0
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_wtx7r"]
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_gbtxi"]
 properties/0/path = NodePath(".:sync_position")
 properties/0/spawn = true
 properties/0/sync = true
@@ -32,8 +32,7 @@ zoom = Vector2(4, 4)
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
-shape = SubResource("CapsuleShape2D_wg1m1")
-metadata/_edit_group_ = true
+shape = SubResource("CapsuleShape2D_y080r")
 
 [node name="state_manager" parent="." instance=ExtResource("2_xkl8k")]
 
@@ -60,4 +59,4 @@ script = ExtResource("4_qxyy1")
 script = ExtResource("5_e0nlq")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="Networking"]
-replication_config = SubResource("SceneReplicationConfig_wtx7r")
+replication_config = SubResource("SceneReplicationConfig_gbtxi")
