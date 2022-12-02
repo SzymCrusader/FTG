@@ -4,9 +4,9 @@ extends Node
 
 @export var starting_state: NodePath
 
-var current_state: BaseState
+@export var current_state: State
 
-func change_state(new_state: BaseState) -> void:
+func change_state(new_state: State) -> void:
 	var old_state = current_state
 	if current_state:
 		current_state.exit()	
@@ -26,7 +26,6 @@ func init(player: Player) -> void:
 		for child2 in child.get_children():
 			child2.player = player
 
-	# Initialize with a default state of idle
 	change_state(get_node(starting_state))
 	
 # Pass through functions for the Player to call,
@@ -43,3 +42,9 @@ func input(event: InputEvent) -> void:
 
 func current_state_name() -> String:
 	return current_state.name as String
+
+func get_current_state() -> State:
+	return current_state
+
+func is_local_authority() -> bool:
+	return get_multiplayer_authority() == multiplayer.get_unique_id()

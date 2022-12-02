@@ -1,5 +1,5 @@
 class_name MoveState
-extends BaseState
+extends State
 
 @export var move_speed: float = 60
 
@@ -9,19 +9,19 @@ extends BaseState
 @export var walk_node: NodePath
 @export var run_node: NodePath
 
-@onready var idle_state: BaseState = get_node(idle_node)
-@onready var jump_state: BaseState = get_node(jump_node)
-@onready var fall_state: BaseState = get_node(fall_node)
-@onready var walk_state: BaseState = get_node(walk_node)
-@onready var run_state: BaseState = get_node(run_node)
+@onready var idle_state: State = get_node(idle_node)
+@onready var jump_state: State = get_node(jump_node)
+@onready var fall_state: State = get_node(fall_node)
+@onready var walk_state: State = get_node(walk_node)
+@onready var run_state: State = get_node(run_node)
 
-func input(event: InputEvent) -> BaseState:
+func input(event: InputEvent) -> State:
 	if Input.is_action_just_pressed("player_jump"):
 		return jump_state
 	return null
 	
 	
-func physics_process(delta: float) -> BaseState:
+func physics_process(delta: float) -> State:
 	if !player.is_on_floor():
 		return fall_state
 
