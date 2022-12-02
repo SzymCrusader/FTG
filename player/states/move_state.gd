@@ -30,7 +30,7 @@ func physics_process(delta: float) -> State:
 	player.velocity.x = move * move_speed
 	player.move_and_slide()
 	
-	if move == 0:
+	if move == 0 or player.velocity.x == 0:
 		return idle_state
 
 	return null
