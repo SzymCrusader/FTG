@@ -23,10 +23,9 @@ func physics_process(delta: float) -> State:
 	var move = 0
 	if Input.is_action_pressed("player_left"):
 		move = -1
-#		player.animations.flip_h = true
+
 	elif Input.is_action_pressed("player_right"):
 		move = 1
-#		player.animations.flip_h = false
 
 	if Input.is_action_just_released("player_jump") or !Input.is_action_pressed("player_jump"):
 		player.velocity.y = 0

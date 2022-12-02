@@ -42,10 +42,8 @@ func physics_process(delta: float) -> State:
 	var move = 0
 	if Input.is_action_pressed("player_left"):
 		move = -1
-#		player.animations.flip_h = true
 	elif Input.is_action_pressed("player_right"):
 		move = 1
-#		player.animations.flip_h = false
 	
 	player.velocity.x = move * move_speed
 	player.velocity.y += player.gravity * fall_gravity_multiplier

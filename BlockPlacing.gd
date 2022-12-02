@@ -13,9 +13,7 @@ func _unhandled_input(event):
 		rpc("remove", map_pos)
 
 @rpc(any_peer, call_local)
-func place(block_id: int, map_pos) -> void:	
-	
-	print("place - ", get_multiplayer_authority(), " - ", multiplayer.get_unique_id(), " - ", map_pos)
+func place(block_id: int, map_pos) -> void:
 	if  tiles.get_cell_source_id(0, map_pos) != block_id:
 		tiles.set_cell(0, map_pos, block_id, Vector2i(0, 0))
 

@@ -1,8 +1,6 @@
 class_name State
 extends Node
 
-@export var animation_name: String
-
 var player: Player
 
 func enter() -> void:
