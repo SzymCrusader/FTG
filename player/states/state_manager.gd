@@ -3,6 +3,7 @@ extends Node
 # from https://github.dev/theshaggydev/the-shaggy-dev-projects
 
 @export var starting_state: NodePath
+@onready var animation = get_parent().get_node("Animation/Body")
 
 @export var current_state: State
 
@@ -14,6 +15,7 @@ func change_state(new_state: State) -> void:
 	current_state = new_state
 	if old_state:
 		current_state.transition(old_state, new_state)
+	animation.play(new_state.name)
 	current_state.enter()
 	
 # Initialize the state machine by giving each state a reference to the objects

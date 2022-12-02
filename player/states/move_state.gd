@@ -20,7 +20,6 @@ func input(event: InputEvent) -> State:
 		return jump_state
 	return null
 	
-	
 func physics_process(delta: float) -> State:
 	if !player.is_on_floor():
 		return fall_state
@@ -31,7 +30,7 @@ func physics_process(delta: float) -> State:
 	player.velocity.x = move * move_speed
 	player.move_and_slide()
 	
-	if move == 0:
+	if move == 0 or player.velocity.x == 0:
 		return idle_state
 
 	return null
