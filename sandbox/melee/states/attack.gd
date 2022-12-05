@@ -26,7 +26,7 @@ func enter():
 	var attack_direction
 	var input_vertical: int = Input.get_action_strength("player_up") - Input.get_action_strength("player_down")
 	var input_horizontal: int = Input.get_action_strength("player_right") - Input.get_action_strength("player_left")
-	
+	set_last_attack(input_horizontal)
 	if input_vertical != 0:
 		if input_vertical > 0:
 			attack_direction = direction.UP
@@ -35,18 +35,11 @@ func enter():
 			attack_direction = direction.DOWN
 			last_direction.vertical = direction.DOWN
 			
-		if input_horizontal > 0:
-			last_direction.horizontal = direction.RIGHT
-		elif input_horizontal < 0:
-			last_direction.horizontal = direction.LEFT
-			
 	elif input_horizontal != 0:
 		if input_horizontal > 0:
 			attack_direction = direction.RIGHT
-			last_direction.horizontal = direction.RIGHT
 		elif input_horizontal < 0:
 			attack_direction = direction.LEFT
-			last_direction.horizontal = direction.LEFT
 	
 	else:
 		attack_direction = direction.NONE
@@ -77,9 +70,19 @@ func enter():
 
 func physics_process(delta: float) -> State:
 	attack_timer -= delta
+	
+	var input_horizontal: int = Input.get_action_strength("player_right") - Input.get_action_strength("player_left")
+	set_last_attack(input_horizontal)
+	
 	if attack_timer < 0:
 		return idle_state
 	return null
+
+func set_last_attack(input_horizontal: int) -> void:
+	if input_horizontal > 0:
+		last_direction.horizontal = direction.RIGHT
+	elif input_horizontal < 0:
+		last_direction.horizontal = direction.LEFT
 
 # up and down need to be flipped differently for correct result
 func flip_sprite(input_horizontal: int, scale: int) -> void:
