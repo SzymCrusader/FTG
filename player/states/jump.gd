@@ -20,12 +20,7 @@ func enter() -> void:
 	player.velocity.y = -jump_force
 
 func physics_process(delta: float) -> State:
-	var move = 0
-	if Input.is_action_pressed("player_left"):
-		move = -1
-
-	elif Input.is_action_pressed("player_right"):
-		move = 1
+	var move = Input.get_action_strength("player_right") - Input.get_action_strength("player_left")
 
 	if Input.is_action_just_released("player_jump") or !Input.is_action_pressed("player_jump"):
 		player.velocity.y = 0

@@ -39,11 +39,7 @@ func physics_process(delta: float) -> State:
 	jump_buffer_timer -= delta
 	coyote_timer -= delta
 	
-	var move = 0
-	if Input.is_action_pressed("player_left"):
-		move = -1
-	elif Input.is_action_pressed("player_right"):
-		move = 1
+	var move = Input.get_action_strength("player_right") - Input.get_action_strength("player_left")
 	
 	player.velocity.x = move * move_speed
 	player.velocity.y += player.gravity * fall_gravity_multiplier

@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://7os7o3b0r35c"]
+
+[ext_resource type="Script" path="res://sandbox/melee/melee.gd" id="1_lorno"]
+[ext_resource type="Script" path="res://core/states/state_manager.gd" id="2_wd3bk"]
+[ext_resource type="Script" path="res://sandbox/melee/states/idle.gd" id="4_r828a"]
+[ext_resource type="Script" path="res://sandbox/melee/states/attack.gd" id="5_q7cca"]
+[ext_resource type="Script" path="res://sandbox/melee/last_direction.gd" id="6_h8lgy"]
+[ext_resource type="Texture2D" uid="uid://c8iin0ay1dsc7" path="res://sandbox/melee/SS_slash.png" id="6_pj6i7"]
+
+[sub_resource type="Animation" id="Animation_0y2ul"]
+resource_name = "attack"
+length = 0.13
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Slash:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w7xi5"]
+_data = {
+"attack": SubResource("Animation_0y2ul")
+}
+
+[node name="melee" type="Area2D"]
+script = ExtResource("1_lorno")
+
+[node name="state_manager" type="Node" parent="."]
+script = ExtResource("2_wd3bk")
+starting_state = NodePath("idle")
+animation_node = NodePath("../Animation/Slash")
+
+[node name="idle" type="Node" parent="state_manager"]
+script = ExtResource("4_r828a")
+attack_node = NodePath("../attack")
+slash_node = NodePath("../..")
+
+[node name="attack" type="Node" parent="state_manager"]
+script = ExtResource("5_q7cca")
+idle_node = NodePath("../idle")
+slash_node = NodePath("../..")
+last_direction_node = NodePath("../../last_direction")
+
+[node name="Animation" type="Node" parent="."]
+
+[node name="Slash" type="AnimationPlayer" parent="Animation"]
+libraries = {
+"": SubResource("AnimationLibrary_w7xi5")
+}
+
+[node name="Hitbox" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 12, 28, 12, 36, 3, 27, -9, -5, -9)
+
+[node name="Slash" type="Sprite2D" parent="."]
+position = Vector2(16, 9.53674e-07)
+texture = ExtResource("6_pj6i7")
+hframes = 2
+
+[node name="last_direction" type="Node" parent="."]
+script = ExtResource("6_h8lgy")

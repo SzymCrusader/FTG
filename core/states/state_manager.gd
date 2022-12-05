@@ -3,7 +3,9 @@ extends Node
 # from https://github.dev/theshaggydev/the-shaggy-dev-projects
 
 @export var starting_state: NodePath
-@onready var animation = get_parent().get_node("Animation/Body")
+
+@export var animation_node: NodePath
+@onready var animation: AnimationPlayer = get_node(animation_node)
 
 @export var current_state: State
 

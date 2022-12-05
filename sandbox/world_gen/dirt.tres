@@ -7,6 +7,7 @@
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8s231"]
 resource_name = "air"
 texture = ExtResource("1_rek4c")
+texture_region_size = Vector2i(10, 10)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ohc3a"]
 resource_name = "Dirt"

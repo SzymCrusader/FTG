@@ -11,13 +11,14 @@ extends State
 @onready var run_state: State = get_node(run_node)
 
 func input(event: InputEvent) -> State:
-	if Input.is_action_just_pressed("player_left") or Input.is_action_just_pressed("player_right"):
-		return walk_state
-	elif Input.is_action_just_pressed("player_jump"):
+	if Input.is_action_just_pressed("player_jump"):
 		return jump_state
 	return null
 
 func physics_process(delta: float) -> State:
+	if Input.get_action_strength("player_right") - Input.get_action_strength("player_left") != 0:
+		return walk_state
+	
 	player.velocity.y += player.gravity
 	player.move_and_slide()
 

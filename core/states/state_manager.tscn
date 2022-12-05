@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbnr33qykrlf8"]
+[gd_scene load_steps=8 format=3 uid="uid://csfb8c4k41evb"]
 
 [ext_resource type="Script" path="res://player/states/move_state.gd" id="1_umy8h"]
-[ext_resource type="Script" path="res://player/states/state_manager.gd" id="1_vo4e1"]
+[ext_resource type="Script" path="res://core/states/state_manager.gd" id="1_vo4e1"]
 [ext_resource type="Script" path="res://player/states/idle.gd" id="2_0yn5y"]
 [ext_resource type="Script" path="res://player/states/jump.gd" id="4_ilddd"]
 [ext_resource type="Script" path="res://player/states/run.gd" id="5_e3mgg"]
@@ -31,6 +31,7 @@ move_speed = 100.0
 [node name="fall" type="Node" parent="."]
 script = ExtResource("5_emqr3")
 move_speed = 100.0
+fall_gravity_multiplier = 1.0
 jump_buffer_time = 0.25
 idle_node = NodePath("../idle")
 walk_node = NodePath("../move_state/walk")
