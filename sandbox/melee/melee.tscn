@@ -40,12 +40,13 @@ animation_node = NodePath("../Animation/Slash")
 script = ExtResource("4_r828a")
 attack_node = NodePath("../attack")
 slash_node = NodePath("../..")
+last_direction_node = NodePath("../../attack_direction")
 
 [node name="attack" type="Node" parent="state_manager"]
 script = ExtResource("5_q7cca")
 idle_node = NodePath("../idle")
 slash_node = NodePath("../..")
-last_direction_node = NodePath("../../last_direction")
+last_direction_node = NodePath("../../attack_direction")
 
 [node name="Animation" type="Node" parent="."]
 
@@ -62,5 +63,5 @@ position = Vector2(16, 9.53674e-07)
 texture = ExtResource("6_pj6i7")
 hframes = 2
 
-[node name="last_direction" type="Node" parent="."]
+[node name="attack_direction" type="Node" parent="."]
 script = ExtResource("6_h8lgy")

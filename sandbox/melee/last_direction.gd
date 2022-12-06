@@ -1,4 +1,5 @@
 extends Node
 
-var vertical: int
 var horizontal: int
+var vertical: int
+var direction: int
