@@ -15,8 +15,8 @@ func _unhandled_input(event):
 @rpc(any_peer, call_local)
 func place(block_id: int, map_pos) -> void:
 	if  tiles.get_cell_source_id(0, map_pos) != block_id:
-		tiles.set_cell(0, map_pos, block_id, Vector2i(0, 0))
+		tiles.set_cells_terrain_connect(0, [map_pos], 0, block_id)
 
 @rpc(any_peer, call_local)
 func remove(map_pos: Vector2i) -> void:
-	tiles.set_cell(0, map_pos, 0, Vector2i(0, 0))
+	tiles.set_cells_terrain_connect(0, [map_pos], 0, -1)

@@ -16,8 +16,8 @@ func _ready():
 	map_grid = make_noise(noise_density)
 	print("noise done")
 	map_grid = apply_cellular_automaton(map_grid, iterations)
-	place_tiles(map_grid)
-
+	place_tiles(map_grid, tiles)
+	
 func make_noise(density):
 	var noise_grid = []
 	for i in map.y:
@@ -57,9 +57,17 @@ func apply_cellular_automaton(grid, count):
 					grid[h][w] = 0
 		print("Iteration ", i," done")
 	return grid
-func place_tiles(grid):
+func place_tiles(grid, tilemap):
+	var coords = []
 	print("placing tiles")
 	for i in map.y:
 		for j in map.x:
-			tiles.set_cell(0, Vector2i(j, i), grid[i][j], Vector2i(0, 0))
+			if grid[i][j] == 1:
+				coords.append(Vector2i(j, i))
+				#tiles.set_cell(0,Vector2i(j, i),grid[i][j],Vector2i(0,0))
+	print(len(coords))
+	tiles.set_cells_terrain_connect(0, coords, 0, 0)
 
+
+	
+	
