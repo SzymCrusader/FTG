@@ -18,21 +18,28 @@ enum direction {
 	UP, DOWN, LEFT, RIGHT, NONE
 }
 
+
 func enter():
+	$"../../Networking".set_multiplayer_authority(str(player.name).to_int())
 	super.enter()
 	attack_timer = attack_time
 	slash.visible = true
-	
-	var input_vertical = Input.get_action_strength("player_up") - Input.get_action_strength("player_down")
-	if input_vertical > 0:
-		last_direction.direction = direction.UP
 		
-	elif input_vertical < 0:
-		last_direction.direction = direction.DOWN
+	if is_local_authority():		
+		var input_vertical = Input.get_action_strength("player_up") - Input.get_action_strength("player_down")
+		if input_vertical > 0:
+			last_direction.direction = direction.UP
+			
+		elif input_vertical < 0:
+			last_direction.direction = direction.DOWN
+			
+		else:
+			last_direction.direction = last_direction.horizontal
+		$"../../Networking".sync_attack_direction = last_direction.direction
 		
-	else:
-		last_direction.direction = last_direction.horizontal
-	print(last_direction.direction)
+	if not is_local_authority():
+		last_direction.direction = $"../../Networking".sync_attack_direction
+		
 	slash.scale.x = 1
 	slash.scale.y = 1
 	match last_direction.direction:
@@ -48,6 +55,7 @@ func enter():
 		direction.RIGHT:
 			slash.rotation = 0
 	
+#	if is_local_authority():
 	Events.emit_signal("player_attacked", damage)
 	for body in $"../..".get_overlapping_bodies():
 		if body.has_method("damage"):
@@ -68,3 +76,6 @@ func flip_sprite(scale: int) -> void:
 			direction.LEFT:
 				slash.scale.y = scale
 			
+
+func is_local_authority() -> bool:
+	return $"../../Networking".get_multiplayer_authority() == multiplayer.get_unique_id()

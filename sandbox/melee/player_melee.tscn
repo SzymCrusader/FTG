@@ -7,11 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://ck0ow42v1cth2" path="res://player/SS_Boyo.png" id="5_yyc75"]
 [ext_resource type="PackedScene" uid="uid://7os7o3b0r35c" path="res://sandbox/melee/melee.tscn" id="6_1taod"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l0cwa"]
-radius = 5.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g17nt"]
+radius = 3.0
 height = 18.0
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_0pbyc"]
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_jsd8l"]
 properties/0/path = NodePath(".:sync_position")
 properties/0/spawn = true
 properties/0/sync = true
@@ -28,7 +28,7 @@ properties/4/path = NodePath(".:sync_velocity")
 properties/4/spawn = true
 properties/4/sync = true
 
-[sub_resource type="Animation" id="Animation_edayd"]
+[sub_resource type="Animation" id="Animation_26sbg"]
 resource_name = "Angry"
 length = 0.001
 loop_mode = 1
@@ -45,10 +45,9 @@ tracks/0/keys = {
 "values": [4]
 }
 
-[sub_resource type="Animation" id="Animation_m34np"]
+[sub_resource type="Animation" id="Animation_auud7"]
 resource_name = "Down"
-length = 0.001
-loop_mode = 1
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -56,13 +55,13 @@ tracks/0/path = NodePath("Sprite/Head:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [Vector2i(2, 0)]
+"values": [Vector2i(0, 0), Vector2i(2, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_d3s18"]
+[sub_resource type="Animation" id="Animation_61lno"]
 resource_name = "Neutral"
 length = 0.001
 loop_mode = 1
@@ -79,7 +78,7 @@ tracks/0/keys = {
 "values": [Vector2i(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_h776j"]
+[sub_resource type="Animation" id="Animation_abgcv"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -106,10 +105,9 @@ tracks/1/keys = {
 "values": [4]
 }
 
-[sub_resource type="Animation" id="Animation_de5p6"]
+[sub_resource type="Animation" id="Animation_vjy7d"]
 resource_name = "Side"
 length = 5.0
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -117,16 +115,15 @@ tracks/0/path = NodePath("Sprite/Head:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [Vector2i(6, 0)]
+"values": [Vector2i(0, 0), Vector2i(6, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_x6vvi"]
+[sub_resource type="Animation" id="Animation_8p51a"]
 resource_name = "SideDown"
-length = 0.001
-loop_mode = 1
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -134,16 +131,15 @@ tracks/0/path = NodePath("Sprite/Head:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [Vector2i(8, 0)]
+"values": [Vector2i(0, 0), Vector2i(8, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_o4an7"]
+[sub_resource type="Animation" id="Animation_2uuqm"]
 resource_name = "SideUp"
-length = 0.001
-loop_mode = 1
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -151,13 +147,13 @@ tracks/0/path = NodePath("Sprite/Head:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [Vector2i(7, 0)]
+"values": [Vector2i(0, 0), Vector2i(7, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_68otu"]
+[sub_resource type="Animation" id="Animation_5ex7t"]
 resource_name = "Sus"
 length = 0.001
 loop_mode = 1
@@ -174,10 +170,9 @@ tracks/0/keys = {
 "values": [Vector2i(5, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_12tvn"]
+[sub_resource type="Animation" id="Animation_c5pv5"]
 resource_name = "Up"
-length = 0.001
-loop_mode = 1
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -185,13 +180,13 @@ tracks/0/path = NodePath("Sprite/Head:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [Vector2i(1, 0)]
+"values": [Vector2i(0, 0), Vector2i(1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_i3gbk"]
+[sub_resource type="Animation" id="Animation_4l4hr"]
 resource_name = "Worried"
 length = 0.001
 loop_mode = 1
@@ -208,21 +203,21 @@ tracks/0/keys = {
 "values": [Vector2i(3, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_clqfi"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bugfq"]
 _data = {
-"Angry": SubResource("Animation_edayd"),
-"Down": SubResource("Animation_m34np"),
-"Neutral": SubResource("Animation_d3s18"),
-"RESET": SubResource("Animation_h776j"),
-"Side": SubResource("Animation_de5p6"),
-"SideDown": SubResource("Animation_x6vvi"),
-"SideUp": SubResource("Animation_o4an7"),
-"Sus": SubResource("Animation_68otu"),
-"Up": SubResource("Animation_12tvn"),
-"Worried": SubResource("Animation_i3gbk")
+"Angry": SubResource("Animation_26sbg"),
+"Down": SubResource("Animation_auud7"),
+"Neutral": SubResource("Animation_61lno"),
+"RESET": SubResource("Animation_abgcv"),
+"Side": SubResource("Animation_vjy7d"),
+"SideDown": SubResource("Animation_8p51a"),
+"SideUp": SubResource("Animation_2uuqm"),
+"Sus": SubResource("Animation_5ex7t"),
+"Up": SubResource("Animation_c5pv5"),
+"Worried": SubResource("Animation_4l4hr")
 }
 
-[sub_resource type="Animation" id="Animation_ctkrp"]
+[sub_resource type="Animation" id="Animation_jwcoo"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -273,7 +268,7 @@ tracks/3/keys = {
 "values": [18]
 }
 
-[sub_resource type="Animation" id="Animation_ojnu8"]
+[sub_resource type="Animation" id="Animation_vd5ag"]
 resource_name = "fall"
 length = 0.001
 loop_mode = 1
@@ -302,7 +297,7 @@ tracks/1/keys = {
 "values": [18]
 }
 
-[sub_resource type="Animation" id="Animation_828p6"]
+[sub_resource type="Animation" id="Animation_dhb6h"]
 resource_name = "idle"
 length = 2.0
 loop_mode = 1
@@ -331,7 +326,7 @@ tracks/1/keys = {
 "values": [Vector2i(0, 3), Vector2i(1, 3)]
 }
 
-[sub_resource type="Animation" id="Animation_m210k"]
+[sub_resource type="Animation" id="Animation_o8kfo"]
 resource_name = "jump"
 length = 0.001
 loop_mode = 1
@@ -360,7 +355,7 @@ tracks/1/keys = {
 "values": [Vector2i(0, 2)]
 }
 
-[sub_resource type="Animation" id="Animation_1dpwb"]
+[sub_resource type="Animation" id="Animation_eo8sy"]
 resource_name = "walk"
 length = 0.5
 loop_mode = 1
@@ -389,13 +384,13 @@ tracks/1/keys = {
 "values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_7723p"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ibhg"]
 _data = {
-"RESET": SubResource("Animation_ctkrp"),
-"fall": SubResource("Animation_ojnu8"),
-"idle": SubResource("Animation_828p6"),
-"jump": SubResource("Animation_m210k"),
-"walk": SubResource("Animation_1dpwb")
+"RESET": SubResource("Animation_jwcoo"),
+"fall": SubResource("Animation_vd5ag"),
+"idle": SubResource("Animation_dhb6h"),
+"jump": SubResource("Animation_o8kfo"),
+"walk": SubResource("Animation_eo8sy")
 }
 
 [node name="player" type="CharacterBody2D"]
@@ -406,7 +401,7 @@ zoom = Vector2(4, 4)
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
-shape = SubResource("CapsuleShape2D_l0cwa")
+shape = SubResource("CapsuleShape2D_g17nt")
 
 [node name="state_manager" parent="." instance=ExtResource("2_7wdml")]
 animation_node = NodePath("../Animation/Body")
@@ -434,15 +429,9 @@ script = ExtResource("3_g6cw6")
 script = ExtResource("4_nadrx")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="Networking"]
-replication_config = SubResource("SceneReplicationConfig_0pbyc")
+replication_config = SubResource("SceneReplicationConfig_jsd8l")
 
 [node name="Sprite" type="Node2D" parent="."]
-
-[node name="Head" type="Sprite2D" parent="Sprite"]
-position = Vector2(0, -4)
-texture = ExtResource("5_yyc75")
-hframes = 9
-vframes = 6
 
 [node name="Body" type="Sprite2D" parent="Sprite"]
 texture = ExtResource("5_yyc75")
@@ -450,19 +439,26 @@ hframes = 9
 vframes = 4
 frame = 18
 
+[node name="Head" type="Sprite2D" parent="Sprite"]
+position = Vector2(0, -4)
+texture = ExtResource("5_yyc75")
+hframes = 9
+vframes = 6
+
 [node name="Animation" type="Node2D" parent="."]
 
 [node name="Head" type="AnimationPlayer" parent="Animation"]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_clqfi")
+"": SubResource("AnimationLibrary_bugfq")
 }
 
 [node name="Body" type="AnimationPlayer" parent="Animation"]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_7723p")
+"": SubResource("AnimationLibrary_4ibhg")
 }
 
 [node name="melee" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_1taod")]
+visible = false
 player = NodePath("..")

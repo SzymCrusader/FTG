@@ -12,14 +12,12 @@ grow_vertical = 2
 script = ExtResource("1_p58kl")
 
 [node name="Join" type="Button" parent="."]
-layout_mode = 0
 offset_right = 44.0
 offset_bottom = 31.0
 focus_mode = 0
 text = "Join"
 
 [node name="Host" type="Button" parent="."]
-layout_mode = 0
 offset_top = 33.0
 offset_right = 44.0
 offset_bottom = 64.0
@@ -28,7 +26,6 @@ text = "Host
 "
 
 [node name="PlayerName" type="Label" parent="."]
-layout_mode = 0
 offset_left = 5.0
 offset_top = 65.0
 offset_right = 73.0

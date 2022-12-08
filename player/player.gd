@@ -10,6 +10,7 @@ var gravity = 16
 @onready var animation_head = $Animation/Head
 @onready var animation_body = $Animation/Body
 @onready var sprites = $Sprite
+var last_head_direction: String = "Neutral"
 
 func _ready() -> void:
 	$Networking/MultiplayerSynchronizer.set_multiplayer_authority(str(name).to_int())
@@ -36,30 +37,31 @@ func head_animation() -> void:
 		elif Input.is_action_pressed("player_down"):
 			head_direction = "Down"
 		else:
-			head_direction = "Neutral"
+			head_direction = "Neutral"		
 		$Networking.sync_head_direction = head_direction
 		play_head_animation(head_direction)
 		
 func play_head_animation(head_direction: String) -> void:
 	match head_direction:
 		"SideUp":
-			if animation_head.current_animation != "SideUp":
+			if last_head_direction != "SideUp":
 				animation_head.play("SideUp")
 		"SideDown":
-			if animation_head.current_animation != "SideDown":
+			if last_head_direction!= "SideDown":
 				animation_head.play("SideDown")
 		"Side":
-			if animation_head.current_animation != "Side":
+			if last_head_direction != "Side":
 				animation_head.play("Side")
 		"Up":
-			if animation_head.current_animation != "Up":
+			if last_head_direction != "Up":
 				animation_head.play("Up")
 		"Down":
-			if animation_head.current_animation != "Down":
+			if last_head_direction != "Down":
 				animation_head.play("Down")
 		"Neutral":
-			if animation_head.current_animation != "Neutral":
+			if last_head_direction != "Neutral":
 				animation_head.play("Neutral")
+	last_head_direction = head_direction
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if is_local_authority():

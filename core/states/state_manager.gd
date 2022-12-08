@@ -26,6 +26,7 @@ func change_state(new_state: State) -> void:
 func init(player: Player) -> void:
 	for child in get_children():	
 		child.player = player
+		
 		# nested states also need player variable
 		for child2 in child.get_children():
 			child2.player = player

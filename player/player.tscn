@@ -1,7 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://0gti86el2cmt"]
+[gd_scene load_steps=24 format=3 uid="uid://0gti86el2cmt"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_ey1w6"]
-[ext_resource type="PackedScene" uid="uid://cbnr33qykrlf8" path="res://player/states/state_manager.tscn" id="2_xkl8k"]
 [ext_resource type="Script" path="res://BlockPlacing.gd" id="4_qxyy1"]
 [ext_resource type="Script" path="res://player/Networking.gd" id="5_e0nlq"]
 [ext_resource type="Texture2D" uid="uid://ck0ow42v1cth2" path="res://player/SS_Boyo.png" id="6_jhcwb"]
@@ -26,200 +25,6 @@ properties/3/sync = true
 properties/4/path = NodePath(".:sync_velocity")
 properties/4/spawn = true
 properties/4/sync = true
-
-[sub_resource type="Animation" id="Animation_hl6ck"]
-resource_name = "Angry"
-length = 0.001
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite/Head:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-
-[sub_resource type="Animation" id="Animation_joehx"]
-resource_name = "Down"
-length = 0.001
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite/Head:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(2, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_06b26"]
-resource_name = "Neutral"
-length = 0.001
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite/Head:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_7antr"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite/Head:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite/Head:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-
-[sub_resource type="Animation" id="Animation_snw71"]
-resource_name = "Side"
-length = 5.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite/Head:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(6, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_tpnsa"]
-resource_name = "SideDown"
-length = 0.001
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite/Head:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(8, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_iwcm3"]
-resource_name = "SideUp"
-length = 0.001
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite/Head:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(7, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_vnhbc"]
-resource_name = "Sus"
-length = 0.001
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite/Head:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(5, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_267bq"]
-resource_name = "Up"
-length = 0.001
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite/Head:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_rk8ow"]
-resource_name = "Worried"
-length = 0.001
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite/Head:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(3, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_elwgw"]
-_data = {
-"Angry": SubResource("Animation_hl6ck"),
-"Down": SubResource("Animation_joehx"),
-"Neutral": SubResource("Animation_06b26"),
-"RESET": SubResource("Animation_7antr"),
-"Side": SubResource("Animation_snw71"),
-"SideDown": SubResource("Animation_tpnsa"),
-"SideUp": SubResource("Animation_iwcm3"),
-"Sus": SubResource("Animation_vnhbc"),
-"Up": SubResource("Animation_267bq"),
-"Worried": SubResource("Animation_rk8ow")
-}
 
 [sub_resource type="Animation" id="Animation_5ajwf"]
 length = 0.001
@@ -397,6 +202,200 @@ _data = {
 "walk": SubResource("Animation_i28f6")
 }
 
+[sub_resource type="Animation" id="Animation_hl6ck"]
+resource_name = "Angry"
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Head:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_joehx"]
+resource_name = "Down"
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Head:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(2, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_06b26"]
+resource_name = "Neutral"
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Head:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7antr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Head:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/Head:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_snw71"]
+resource_name = "Side"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Head:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(6, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tpnsa"]
+resource_name = "SideDown"
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Head:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(8, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_iwcm3"]
+resource_name = "SideUp"
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Head:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(7, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vnhbc"]
+resource_name = "Sus"
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Head:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(5, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_267bq"]
+resource_name = "Up"
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Head:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rk8ow"]
+resource_name = "Worried"
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Head:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(3, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_elwgw"]
+_data = {
+"Angry": SubResource("Animation_hl6ck"),
+"Down": SubResource("Animation_joehx"),
+"Neutral": SubResource("Animation_06b26"),
+"RESET": SubResource("Animation_7antr"),
+"Side": SubResource("Animation_snw71"),
+"SideDown": SubResource("Animation_tpnsa"),
+"SideUp": SubResource("Animation_iwcm3"),
+"Sus": SubResource("Animation_vnhbc"),
+"Up": SubResource("Animation_267bq"),
+"Worried": SubResource("Animation_rk8ow")
+}
+
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_ey1w6")
 
@@ -406,16 +405,6 @@ zoom = Vector2(4, 4)
 [node name="CollisionShape2d" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_g0fbu")
-
-[node name="state_manager" parent="." instance=ExtResource("2_xkl8k")]
-
-[node name="debug_network_label" type="Label" parent="."]
-offset_left = -20.0
-offset_top = -62.0
-offset_right = 20.0
-offset_bottom = -36.0
-text = "Test"
-horizontal_alignment = 1
 
 [node name="debug_state_label" type="Label" parent="."]
 offset_left = -20.0
@@ -436,13 +425,6 @@ replication_config = SubResource("SceneReplicationConfig_efnn5")
 
 [node name="Sprite" type="Node2D" parent="."]
 
-[node name="Head" type="Sprite2D" parent="Sprite"]
-position = Vector2(0, -4)
-texture = ExtResource("6_jhcwb")
-hframes = 9
-vframes = 6
-frame = 4
-
 [node name="Body" type="Sprite2D" parent="Sprite"]
 position = Vector2(0, 1)
 texture = ExtResource("6_jhcwb")
@@ -450,16 +432,23 @@ hframes = 9
 vframes = 4
 frame = 18
 
-[node name="Animation" type="Node2D" parent="."]
+[node name="Head" type="Sprite2D" parent="Sprite"]
+position = Vector2(0, -4)
+texture = ExtResource("6_jhcwb")
+hframes = 9
+vframes = 6
+frame = 4
 
-[node name="Head" type="AnimationPlayer" parent="Animation"]
-root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_elwgw")
-}
+[node name="Animation" type="Node2D" parent="."]
 
 [node name="Body" type="AnimationPlayer" parent="Animation"]
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_seo3g")
+}
+
+[node name="Head" type="AnimationPlayer" parent="Animation"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_elwgw")
 }

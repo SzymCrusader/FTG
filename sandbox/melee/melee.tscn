@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://7os7o3b0r35c"]
+[gd_scene load_steps=11 format=3 uid="uid://7os7o3b0r35c"]
 
 [ext_resource type="Script" path="res://sandbox/melee/melee.gd" id="1_lorno"]
 [ext_resource type="Script" path="res://core/states/state_manager.gd" id="2_wd3bk"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://sandbox/melee/states/attack.gd" id="5_q7cca"]
 [ext_resource type="Script" path="res://sandbox/melee/last_direction.gd" id="6_h8lgy"]
 [ext_resource type="Texture2D" uid="uid://c8iin0ay1dsc7" path="res://sandbox/melee/SS_slash.png" id="6_pj6i7"]
+[ext_resource type="Script" path="res://sandbox/melee/Networking.gd" id="7_320uk"]
 
 [sub_resource type="Animation" id="Animation_0y2ul"]
 resource_name = "attack"
@@ -27,6 +28,14 @@ tracks/0/keys = {
 _data = {
 "attack": SubResource("Animation_0y2ul")
 }
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_84hdq"]
+properties/0/path = NodePath("Networking:sync_state_path")
+properties/0/spawn = true
+properties/0/sync = true
+properties/1/path = NodePath("Networking:sync_attack_direction")
+properties/1/spawn = true
+properties/1/sync = true
 
 [node name="melee" type="Area2D"]
 script = ExtResource("1_lorno")
@@ -65,3 +74,10 @@ hframes = 2
 
 [node name="attack_direction" type="Node" parent="."]
 script = ExtResource("6_h8lgy")
+
+[node name="Networking" type="Node" parent="."]
+script = ExtResource("7_320uk")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="Networking"]
+root_path = NodePath("../..")
+replication_config = SubResource("SceneReplicationConfig_84hdq")
