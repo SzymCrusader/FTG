@@ -48,18 +48,22 @@ func play_head_animation(head_direction: String) -> void:
 		"SideDown":
 			if animation_head.current_animation != "SideDown":
 				animation_head.play("SideDown")
+				
 		"Side":
 			if animation_head.current_animation != "Side":
 				animation_head.play("Side")
 		"Up":
 			if animation_head.current_animation != "Up":
 				animation_head.play("Up")
+				
 		"Down":
 			if animation_head.current_animation != "Down":
 				animation_head.play("Down")
+				
 		"Neutral":
 			if animation_head.current_animation != "Neutral":
 				animation_head.play("Neutral")
+				
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if is_local_authority():

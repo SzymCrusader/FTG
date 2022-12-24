@@ -66,7 +66,7 @@ func place_tiles(grid, tilemap):
 				coords.append(Vector2i(j, i))
 				#tiles.set_cell(0,Vector2i(j, i),grid[i][j],Vector2i(0,0))
 	print(len(coords))
-	tiles.set_cells_terrain_connect(0, coords, 0, 0)
+	tiles.set_cells_terrain_connect(0, coords, 0, 1)
 
 
 	
